@@ -32,7 +32,7 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authz -> authz
-                .requestMatchers(HttpMethod.GET, "/api/employee/actuator/*").permitAll()
+                .requestMatchers(HttpMethod.GET, "/actuator/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/employee/verify").permitAll()
                 .anyRequest().hasAuthority("HR")
             )
